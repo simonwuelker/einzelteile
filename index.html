@@ -5,63 +5,57 @@
     <meta charset="utf8">
     <title>Einzelteile</title>
     <style>
-        html {
-            width: 100%;
-            height: 100%;
-
-            --background: #222;
-            --text: #ddd;
-        }
-
-        a {
-            color: var(--text);
-        }
-
-        body {
-            background-color: var(--background);
+        body, html {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			--background: #222;
+			--text: #ddd;
+			background-color: var(--background);
             color: var(--text);
             fill: var(--text);
-            height: 100%;
+		}
+		.row-container {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			flex-direction: column;
+			background-color: var(--background); 
+			overflow: hidden;
+		}
+		.first-row {
+			display: flex;
+        	justify-content: space-around;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
 
-            & #header {
-                display: flex;
-                justify-content: space-around;
-                flex-direction: row;
-                align-items: center;
-                width: 100%;
-
-                & #discord-link {
-                    justify-self: flex-end;
-                }
+			& #discord-link {
+                justify-self: flex-end;
             }
-
-            & #footer {
-                width: 100%;
-                bottom: 0em;
-                padding-bottom: 1em;
-            }
-
-            & #article-container {
-                width: 100%;
-                height: 100%;
-            }
-        }
+		}
+		.second-row {
+			flex-grow: 1;
+			border: none;
+			margin: 0;
+			padding: 0;
+		}
     </style>
 </head>
 
 <body>
-    <div id="header">
-        <span>
+	<div class="row-container">
+	<div class="first-row">
+		<span>
             <h1>Einzelteile</h1>
         </span>
-        <a id="discord-link" href="https://discord.gg/JwyDz85Xe5"><svg width="90" height="90">
+		<a id="discord-link" href="https://discord.gg/JwyDz85Xe5"><svg width="90" height="90">
                 <image xlink:href="Discord-Logo-White.svg" alt="discord logo" width="100%" height="100%" />
             </svg></a>
-    </div>
-    <hr>
-    <iframe id="article-container" src="issue_1_2026_07_16.pdf"></iframe>
-    <hr>
-
+	</div>
+	<iframe src="./issue_1_2026_07_16.pdf" class="second-row"></iframe>
+</div>
 </body>
 
 </html>
